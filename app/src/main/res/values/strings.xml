@@ -14,14 +14,14 @@
     <string name="soil_temperature" tools:ignore="MissingTranslation">Temperature</string>
 
     <string name="cropRecommendation" tools:ignore="MissingTranslation">Crop Recommendation</string>
-    <string name="crDetail" tools:ignore="MissingTranslation" >Best Crop For Your Soil</string>
-    <string name="disease" tools:ignore="MissingTranslation" >Disease Detection</string>
-    <string name="diseasDetail" tools:ignore="MissingTranslation" >Detect Disease From Your Camera</string>
-    <string name="farmerCommunity" tools:ignore="MissingTranslation" >Farmers Community</string>
-    <string name="CommunityDetails" tools:ignore="MissingTranslation" >Get Close With Your Fellow Farmer</string>
-    <string name="StrtBtn" tools:ignore="MissingTranslation" >Start</string>
+    <string name="crDetail" tools:ignore="MissingTranslation">Best Crop For Your Soil</string>
+    <string name="disease" tools:ignore="MissingTranslation">Disease Detection</string>
+    <string name="diseasDetail" tools:ignore="MissingTranslation">Detect Disease From Your Camera</string>
+    <string name="farmerCommunity" tools:ignore="MissingTranslation">Farmers Community</string>
+    <string name="CommunityDetails" tools:ignore="MissingTranslation">Get Close With Your Fellow Farmer</string>
+    <string name="StrtBtn" tools:ignore="MissingTranslation">Start</string>
 
-    <string name="soil_fertility" tools:ignore="MissingTranslation" >Fertility</string>
+    <string name="soil_fertility" tools:ignore="MissingTranslation">Fertility</string>
     <string name="no_soil_data" tools:ignore="MissingTranslation">No soil data</string>
     <string name="soil_error" tools:ignore="MissingTranslation">Error fetching soil data</string>
 </resources>

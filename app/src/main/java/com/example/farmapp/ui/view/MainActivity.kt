@@ -4,6 +4,7 @@ package com.example.farmapp.ui.view
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 
@@ -19,6 +20,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.recreate
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.farmapp.R
 import com.example.farmapp.data.model.Resource
@@ -43,6 +46,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvSoilData: TextView
     private lateinit var tvTemp :TextView
     private lateinit var tvLocationTR :TextView
+    private lateinit var diseaseBtn :TextView
+    private lateinit var predictionBtn :TextView
+    private lateinit var communityBtn :TextView
+
 
 
 
@@ -78,6 +85,9 @@ class MainActivity : AppCompatActivity() {
         tvSoilData = findViewById(R.id.tvSoildata)
         tvTemp=findViewById(R.id.tvTemp)
         tvLocationTR=findViewById(R.id.tvCurrentLocation);
+        diseaseBtn=findViewById(R.id.start2)
+        predictionBtn=findViewById(R.id.start1)
+        communityBtn=findViewById(R.id.start3)
 
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -139,6 +149,16 @@ class MainActivity : AppCompatActivity() {
         observeWeather()
         observeSoil()
         fetchLocationAndData()
+
+        communityBtn.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                startActivity(intent)
+            }
+        })
+
+
+
     }
 
 
@@ -151,31 +171,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-//
-//    class LanguageDialog(private val context: Context) {
-//        fun showLanguageDialog(onLangSelected: (String) -> Unit) {
-//            // Naam aur codes map me
-//            val languages = mapOf(
-//                "English" to "en",
-//                "Hindi" to "hi",
-//                "Khortha" to "kho",
-//                "Kudmali" to "kud",
-//                "Nepali" to "ne"
-//            )
-//
-//            val displayNames = languages.keys.toTypedArray()
-//
-//            AlertDialog.Builder(context)
-//                .setTitle("Choose Language")
-//                .setItems(displayNames) { _, which ->
-//                    val selectedName = displayNames[which]
-//                    val selectedCode = languages[selectedName] ?: "en"
-//                    onLangSelected(selectedCode) // code pass karega (en, hi, ko…)
-//                }
-//                .setCancelable(false)
-//                .show()
-//        }
-//    }
+
 
 
 private fun observeWeather() {

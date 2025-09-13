@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "991829182285",
+    "firebase_url": "https://farmapp-fea9f-default-rtdb.firebaseio.com",
+    "project_id": "farmapp-fea9f",
+    "storage_bucket": "farmapp-fea9f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991829182285:android:027a23cedb502a3e3a1904",
+        "android_client_info": {
+          "package_name": "com.example.farmapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlXf3bXpK-CnvkbzvCsblFJ-kAP_u8_bA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

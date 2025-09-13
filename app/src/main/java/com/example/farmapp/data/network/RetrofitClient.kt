@@ -1,7 +1,7 @@
 
 package com.example.farmapp.data.network
 
-import androidx.contentpager.content.Query
+
 import com.example.farmapp.data.model.SoilResponse
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
