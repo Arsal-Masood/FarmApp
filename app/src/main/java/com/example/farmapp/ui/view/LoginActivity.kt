@@ -1,5 +1,6 @@
 package com.example.farmapp.ui.view
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -33,6 +34,14 @@ class LoginActivity : AppCompatActivity() {
         loginBtn = findViewById(R.id.loginBtn)
         registerRedirect = findViewById(R.id.registerbtn)
         name=findViewById(R.id.nameEt)
+        // Check if already logged in
+        val prefs = getSharedPreferences("UserData", Context.MODE_PRIVATE)
+        val username = prefs.getString("username", null)
+        if (username != null) {
+            // User already logged in, directly go to community
+            startActivity(Intent(this, community::class.java))
+            finish()
+        }
 
         loginBtn.setOnClickListener {
             val email = emailEdit.text.toString()

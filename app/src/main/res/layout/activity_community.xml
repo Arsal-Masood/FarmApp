@@ -12,9 +12,10 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/myToolbar"
+
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="#B5F094"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
 
@@ -48,7 +49,7 @@
             android:layout_width="260dp"
             android:id="@+id/msgEt"
             android:hint="Enter Message"
-            android:textColor="#000000"
+            android:textColor="#232222"
             android:layout_weight="7"
             android:layout_height="wrap_content">
 
@@ -58,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#ABEF5B"
             android:text="SEND"
             android:id="@+id/sendBtn"
             />

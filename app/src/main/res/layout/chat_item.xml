@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/green_100"
     android:padding="8dp">
 
     <TextView
         android:id="@+id/senderName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FF5722"
+        android:textColor="#FFC107"
     android:textStyle="bold"
     android:textSize="14sp" />
 
@@ -17,6 +18,6 @@
         android:id="@+id/messageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
+        android:textColor="#121212"
     android:textSize="16sp" />
 </LinearLayout>
