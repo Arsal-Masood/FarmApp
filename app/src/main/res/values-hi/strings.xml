@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">खेती ऐप</string>
     <string name="choose_language">भाषा चुनें</string>
     <string name="location">स्थान</string>
@@ -8,4 +8,19 @@
     <string name="soil_info">मिट्टी की जानकारी</string>
     <string name="enter_land_area">भूमि क्षेत्र दर्ज करें</string>
     <string name="enter_last_crops">पिछली 2 फसलें दर्ज करें</string>
+    <string name="soil_moisture">नमी: 23%</string>
+    <string name="soil_ph">पीएच: 7.8</string>
+    <string name="soil_type">रेतिल</string>
+    <string name="soil_temperature">तापमान: 31</string>
+    <string name="cropRecommendation" tools:ignore="MissingTranslation">फसल अनुशंसा</string>
+    <string name="crDetail" tools:ignore="MissingTranslation">आपकी मिट्टी के लिए सर्वोत्तम फसल</string>
+    <string name="disease" tools:ignore="MissingTranslation">रोग पहचान</string>
+    <string name="diseasDetail" tools:ignore="MissingTranslation">अपने कैमरे से रोग पहचानें</string>
+    <string name="farmerCommunity" tools:ignore="MissingTranslation">किसान समुदाय</string>
+    <string name="CommunityDetails" tools:ignore="MissingTranslation">अपने साथी किसानों से जुड़ें</string>
+    <string name="StrtBtn" tools:ignore="MissingTranslation">शुरू करें</string>
+
+    <string name="soil_fertility">उपजाऊपन: 78</string>
+    <string name="no_soil_data">कोई मिट्टी का डेटा नहीं</string>
+    <string name="soil_error">मिट्टी डेटा प्राप्त करने में त्रुटि</string>
 </resources>

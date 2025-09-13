@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvWeatherTomorrow: TextView
     private lateinit var tvSoilData: TextView
     private lateinit var tvTemp :TextView
+    private lateinit var tvLocationTR :TextView
 
 
 
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        TranslationHelper.initDictionary(this)
 //        lifecycleScope.launch {
 //            try {
 //                val response = viewModel.api(28.67, 77.23, "1f2c8e36eead0da99bbc306f6755c00ab9a100957ee6b89ef3fa1ac3d2f4288f")
@@ -73,8 +75,9 @@ class MainActivity : AppCompatActivity() {
         tvLocation = findViewById(R.id.tvLocation)
         tvWeatherToday = findViewById(R.id.tvWeatherToday)
         tvWeatherTomorrow = findViewById(R.id.tvWeatherTomorrow)
-        tvSoilData = findViewById(R.id.tvSoilData)
+        tvSoilData = findViewById(R.id.tvSoildata)
         tvTemp=findViewById(R.id.tvTemp)
+        tvLocationTR=findViewById(R.id.tvCurrentLocation);
 
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -105,8 +108,11 @@ class MainActivity : AppCompatActivity() {
             "English" to "en",
             "Hindi" to "hi",
             "Khortha" to "kho",
+            "Santali" to "snt",
+            "Bhojpuri" to "bho",
+            "Magahi" to "mag",
             "Kudmali" to "kud",
-            "Nepali" to "ne"
+
         )
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages.keys.toList())
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -145,31 +151,31 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-    class LanguageDialog(private val context: Context) {
-        fun showLanguageDialog(onLangSelected: (String) -> Unit) {
-            // Naam aur codes map me
-            val languages = mapOf(
-                "English" to "en",
-                "Hindi" to "hi",
-                "Khortha" to "kho",
-                "Kudmali" to "kud",
-                "Nepali" to "ne"
-            )
-
-            val displayNames = languages.keys.toTypedArray()
-
-            AlertDialog.Builder(context)
-                .setTitle("Choose Language")
-                .setItems(displayNames) { _, which ->
-                    val selectedName = displayNames[which]
-                    val selectedCode = languages[selectedName] ?: "en"
-                    onLangSelected(selectedCode) // code pass karega (en, hi, ko…)
-                }
-                .setCancelable(false)
-                .show()
-        }
-    }
+//
+//    class LanguageDialog(private val context: Context) {
+//        fun showLanguageDialog(onLangSelected: (String) -> Unit) {
+//            // Naam aur codes map me
+//            val languages = mapOf(
+//                "English" to "en",
+//                "Hindi" to "hi",
+//                "Khortha" to "kho",
+//                "Kudmali" to "kud",
+//                "Nepali" to "ne"
+//            )
+//
+//            val displayNames = languages.keys.toTypedArray()
+//
+//            AlertDialog.Builder(context)
+//                .setTitle("Choose Language")
+//                .setItems(displayNames) { _, which ->
+//                    val selectedName = displayNames[which]
+//                    val selectedCode = languages[selectedName] ?: "en"
+//                    onLangSelected(selectedCode) // code pass karega (en, hi, ko…)
+//                }
+//                .setCancelable(false)
+//                .show()
+//        }
+//    }
 
 
 private fun observeWeather() {
@@ -182,6 +188,7 @@ private fun observeWeather() {
             is Resource.Success -> {
                 val weather = resource.data
                 tvLocation.text = weather?.location?.name ?: "Unknown location"
+                tvLocationTR.text=weather?.location?.name ?: "NA"
 
                 val todayCondition = weather?.forecast?.forecastday?.get(0)?.day?.condition?.text ?: ""
                 val tomorrowCondition = if (weather?.forecast?.forecastday?.size ?: 0 > 1) {
@@ -192,15 +199,14 @@ private fun observeWeather() {
                 // Translator init karo (EN → user selected language)
                 val targetLang = when (selectedLanguage) {
                     "hi" -> com.google.mlkit.nl.translate.TranslateLanguage.HINDI
-                    //"ne" -> com.google.mlkit.nl.translate.TranslateLanguage.NEPALI
                     "ms" -> com.google.mlkit.nl.translate.TranslateLanguage.MALAY
                     "ko" -> com.google.mlkit.nl.translate.TranslateLanguage.KOREAN
-                    else -> com.google.mlkit.nl.translate.TranslateLanguage.ENGLISH
+                    else ->null
                 }
 
                 TranslationHelper.initTranslator(
                     TranslateLanguage.ENGLISH,
-                    targetLang,
+                    targetLang ?:"en",
                     this
                 ) {
 
@@ -254,14 +260,13 @@ private fun observeWeather() {
 
                         val targetLang = when (selectedLanguage) {
                             "hi" -> com.google.mlkit.nl.translate.TranslateLanguage.HINDI
-                            //"ne" -> com.google.mlkit.nl.translate.TranslateLanguage.NEPALI
                             "ms" -> com.google.mlkit.nl.translate.TranslateLanguage.MALAY
                             "ko" -> com.google.mlkit.nl.translate.TranslateLanguage.KOREAN
-                            else -> com.google.mlkit.nl.translate.TranslateLanguage.ENGLISH
+                            else -> null
                         }
 
                         TranslationHelper.initTranslator(
-                            TranslateLanguage.ENGLISH, targetLang, this
+                            TranslateLanguage.ENGLISH, targetLang?:"en", this
                         ) {
                             TranslationHelper.translate(rawText) { translated ->
                                 tvSoilData.text = translated
@@ -273,7 +278,8 @@ private fun observeWeather() {
                 }
 
                 is Resource.Error -> {
-                    tvSoilData.text = "Error: ${resource.message}"
+                    tvSoilData.text = ""
+                   // tvSoilData.text = "Error: ${resource.message}"
                     Toast.makeText(this, "Error fetching soil data: ${resource.message}", Toast.LENGTH_LONG).show()
                 }
             }
