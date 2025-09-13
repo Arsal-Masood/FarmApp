@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Farm App</string>
+    <string name="choose_language" translatable="false">Choose Language</string>
+    <string name="location">Location</string>
+    <string name="today_weather">Todays Weather</string>
+    <string name="tomorrow_weather">Tomorrows Weather</string>
+    <string name="soil_info">Soil Info</string>
+    <string name="enter_land_area">Enter Land Area</string>
+    <string name="enter_last_crops">Enter Last 2 Crops</string>
+</resources>
