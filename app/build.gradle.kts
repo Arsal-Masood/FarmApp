@@ -131,6 +131,10 @@ dependencies {
     implementation(libs.androidx.contentpager)
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 
+    //ml kit translator
+    implementation("com.google.mlkit:translate:17.0.2")
+
+    
     implementation ("androidx.cardview:cardview:1.0.0")
     // Testing
     testImplementation("junit:junit:4.13.2")

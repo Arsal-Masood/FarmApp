@@ -3,8 +3,8 @@
     <string name="app_name">खेती ऐप</string>
     <string name="choose_language">भाषा चुनें</string>
     <string name="location">स्थान</string>
-    <string name="today_weather">आज का मौसम</string>
-    <string name="tomorrow_weather">कल का मौसम</string>
+    <string name="today_weather">आज का मौसम:  </string>
+    <string name="tomorrow_weather">कल का मौसम:   </string>
     <string name="soil_info">मिट्टी की जानकारी</string>
     <string name="enter_land_area">भूमि क्षेत्र दर्ज करें</string>
     <string name="enter_last_crops">पिछली 2 फसलें दर्ज करें</string>

@@ -1,0 +1,8 @@
+{
+  "Moisture": {"bho": "Geelapan", "mag": "Geelapan", "kho": "MoistureKho"},
+  "Temperature": {"bho": "Taapman", "mag": "Taapman", "kho": "TemperatureKho"},
+  "Fertility": {"bho": "Upjaaupan", "mag": "Upjaaupan", "kho": "FertilityKho"},
+  "Loading weather...": {"bho": "Mausam load ho rahi hai...", "mag": "Mausam load ho rahi hai..."},
+  "Unknown location": {"bho": "Pata nahi", "mag": "Pata nahi"},
+  "Error": {"bho": "Galti", "mag": "Galti"}
+}
