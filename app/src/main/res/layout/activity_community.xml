@@ -21,6 +21,7 @@
 
 
     <ListView
+        android:background="#FCFFFC"
         android:layout_below="@+id/myToolbar"
         android:layout_width="match_parent"
         android:id="@+id/listview"
@@ -36,17 +37,9 @@
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content">
 
-<!--        <EditText-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:id="@+id/senderEt"-->
-<!--            android:layout_weight="2"-->
-<!--            android:hint="name"-->
-<!--            android:textColor="#000000"-->
-<!--            android:layout_height="wrap_content">-->
 
-<!--        </EditText>-->
         <EditText
-            android:layout_width="260dp"
+            android:layout_width="140dp"
             android:id="@+id/msgEt"
             android:hint="Enter Message"
             android:textColor="#232222"
@@ -58,11 +51,19 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0"
             android:backgroundTint="#ABEF5B"
             android:text="SEND"
             android:id="@+id/sendBtn"
             />
+
+        <Button
+            android:id="@+id/micBtn"
+            android:layout_width="54dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:backgroundTint="#ABEF5B"
+            android:text="🎤" />
 
     </LinearLayout>
 

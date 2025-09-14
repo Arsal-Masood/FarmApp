@@ -157,6 +157,19 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        predictionBtn.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                val intent = Intent(this@MainActivity, CropInputActivity::class.java)
+                startActivity(intent)
+            }
+        })
+
+        diseaseBtn.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                val intent = Intent(this@MainActivity,DiseaseDetectionActivity::class.java)
+                startActivity(intent);
+            }
+        })
 
 
     }

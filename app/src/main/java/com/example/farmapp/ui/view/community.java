@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,7 +41,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.farmapp.R;
 
 public class community extends AppCompatActivity {
-    Button sendBtn;
+    private static final int SPEECH_REQUEST_CODE = 101;
+    Button sendBtn,micbtn;
     EditText msgEt;
     ListView listView;
     //ArrayAdapter msgAdapter;
@@ -62,6 +64,7 @@ public class community extends AppCompatActivity {
         listView = findViewById(R.id.listview);
         sendBtn = findViewById(R.id.sendBtn);
         msgEt = findViewById(R.id.msgEt);
+        micbtn=findViewById(R.id.micBtn);
 
         // 2️⃣ Initialize adapter after listView
         ArrayList<ChatMessage> msgList = new ArrayList<>();
@@ -89,7 +92,12 @@ public class community extends AppCompatActivity {
             }
         });
 
-
+        micbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startSpeechToText();
+            }
+        });
 
 
     }
@@ -125,5 +133,30 @@ public class community extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void startSpeechToText() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-US");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak now...");
+        try {
+            startActivityForResult(intent, SPEECH_REQUEST_CODE);
+        } catch (Exception e) {
+            Toast.makeText(this, "Speech not supported: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == SPEECH_REQUEST_CODE && resultCode == RESULT_OK && data != null){
+            ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            if(result != null && result.size() > 0){
+                msgEt.setText(result.get(0)); // Speech converted to text
+            }
+        }
     }
 }

@@ -8,10 +8,10 @@
     <string name="soil_info">Soil Info</string>
     <string name="enter_land_area">Enter Land Area</string>
     <string name="enter_last_crops">Enter Last 2 Crops</string>
-    <string name="soil_moisture" tools:ignore="MissingTranslation">Moisture</string>
-    <string name="soil_ph" tools:ignore="MissingTranslation">pH</string>
+    <string name="soil_moisture" tools:ignore="MissingTranslation">Moisture: 23%</string>
+    <string name="soil_ph" tools:ignore="MissingTranslation">pH : 7.5</string>
     <string name="soil_type" tools:ignore="MissingTranslation">Sandy Soil</string>
-    <string name="soil_temperature" tools:ignore="MissingTranslation">Temperature</string>
+    <string name="soil_temperature" tools:ignore="MissingTranslation">Temperature : 34</string>
 
     <string name="cropRecommendation" tools:ignore="MissingTranslation">Crop Recommendation</string>
     <string name="crDetail" tools:ignore="MissingTranslation">Best Crop For Your Soil</string>
@@ -21,7 +21,7 @@
     <string name="CommunityDetails" tools:ignore="MissingTranslation">Get Close With Your Fellow Farmer</string>
     <string name="StrtBtn" tools:ignore="MissingTranslation">Start</string>
 
-    <string name="soil_fertility" tools:ignore="MissingTranslation">Fertility</string>
+    <string name="soil_fertility" tools:ignore="MissingTranslation">Fertility : 78</string>
     <string name="no_soil_data" tools:ignore="MissingTranslation">No soil data</string>
     <string name="soil_error" tools:ignore="MissingTranslation">Error fetching soil data</string>
 </resources>
